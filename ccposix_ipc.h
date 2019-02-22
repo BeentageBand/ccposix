@@ -8,7 +8,7 @@ namespace ccposix
 class Sender : public cc::IPC::Sender
 {
    public:
-   explicit Sender(IPC_TID_T const tid);
+   Sender(IPC_TID_T const tid, cc::IPC & ipc);
    virtual ~Sender(void);
    void send(cc::Mail const & mail);
 
@@ -17,7 +17,7 @@ class Sender : public cc::IPC::Sender
 class Retriever : public cc::IPC::Retriever
 {
     public:
-    explicit Retriever(IPC_TID_T const tid);
+    Retriever(IPC_TID_T const tid, cc::IPC & ipc);
     virtual ~Retriever(void);
     std::shared_ptr<cc::Mail> retrieve(IPC_Clock_T const tout_ms);
 
